@@ -5,6 +5,7 @@ class Term
   define_method(:initialize) do |word,definition|
     @word = word
     @definition = definition
+    @id = @@terms.length().+(1)
   end
 
   define_method(:word) do
@@ -13,6 +14,10 @@ class Term
 
   define_method(:definition) do
     @definition
+  end
+
+  define_method(:id) do
+    @id
   end
 
   define_method(:save) do
