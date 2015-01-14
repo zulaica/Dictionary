@@ -32,4 +32,14 @@ class Term
     @@terms = []
   end
 
+  define_singleton_method(:find) do |identification|
+    found_term = nil
+    @@terms.each() do |term|
+      if term.id().eql?(identification.to_i())
+        found_term = term
+      end
+    end
+    found_term
+  end
+
 end
