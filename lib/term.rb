@@ -5,7 +5,6 @@ class Term
   define_method(:initialize) do |word,definition|
     @word = word
     @definition = definition
-    @id = @@terms.length().+(1)
   end
 
   define_method(:word) do
@@ -21,6 +20,11 @@ class Term
   end
 
   define_method(:save) do
+    if @@terms == []
+      @id = 0
+    else
+      @id = @@terms.last().id().+(1)
+    end
     @@terms.push(self)
   end
 
