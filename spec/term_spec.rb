@@ -28,6 +28,17 @@ describe("Term") do
     end
   end
 
+  describe("#destroy") do
+    it("destroys a term by its id number") do
+      test_term = Term.new("carrot","A delicious vegetable.")
+      test_term.save()
+      other_test_term = Term.new("potato","Boil 'em, mash 'em, stick 'em in a stew!")
+      other_test_term.save()
+      test_term.destroy()
+      expect(Term.all().length()).to(eq(1))
+    end
+  end
+
   describe(".all") do
     it("returns an empty list") do
       expect(Term.all()).to(eq([]))
@@ -41,17 +52,6 @@ describe("Term") do
       other_test_term = Term.new("potato","Boil 'em, mash 'em, stick 'em in a stew!")
       other_test_term.save()
       expect(Term.find(test_term.id())).to(eq(test_term))
-    end
-  end
-
-  describe("#destroy") do
-    it("destroys a term by its id number") do
-      test_term = Term.new("carrot","A delicious vegetable.")
-      test_term.save()
-      other_test_term = Term.new("potato","Boil 'em, mash 'em, stick 'em in a stew!")
-      other_test_term.save()
-      test_term.destroy()
-      expect(Term.all().length()).to(eq(1))
     end
   end
 
