@@ -23,6 +23,8 @@ class Term
     @@terms
   end
 
-
+  define_singleton_method(:clear) do
+    @@terms = []
+  end
 
 end
