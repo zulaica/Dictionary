@@ -28,6 +28,10 @@ class Term
     @@terms.push(self)
   end
 
+  define_method(:destroy) do
+    @@terms.delete(self)
+  end
+
   define_singleton_method(:all) do
     @@terms
   end
