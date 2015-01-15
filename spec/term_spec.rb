@@ -55,4 +55,14 @@ describe("Term") do
     end
   end
 
+  describe(".seek") do
+    it("returns the sought word and definition of that word") do
+      test_term = Term.new("carrot","A delicious vegetable.")
+      test_term.save()
+      other_test_term = Term.new("potato","Boil 'em, mash 'em, stick 'em in a stew!")
+      other_test_term.save()
+      expect(Term.seek("potato")).to(eq([other_test_term.word(),other_test_term.definition()]))
+    end
+  end
+
 end
