@@ -50,4 +50,18 @@ class Term
     found_term
   end
 
+  define_singleton_method(:seek) do |word|
+    sought_word = "Word not found."
+    sought_definition = nil
+    variable = []
+    @@terms.each() do |term|
+      if term.word() == word
+        sought_word = term.word()
+        sought_definition = term.definition()
+      end
+    end
+    variable = [sought_word,sought_definition]
+    variable
+  end
+
 end
